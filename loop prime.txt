@@ -1,0 +1,29 @@
+#!/bin/bash
+
+echo "Enter range to check for prime numbers:"
+read start end
+
+for ((i=start; i<=end; i++))
+do
+  if [ $i -eq 1 ] || [ $i -eq 0 ]
+  then
+    continue
+  fi
+
+  flag=1
+  for ((j=2; j<=i/2; j++))
+  do
+    if [ $((i%j)) -eq 0 ]
+    then
+      flag=0
+      break
+    fi
+  done
+
+  if [ $flag -eq 1 ]
+  then
+    echo "$i is prime"
+  else
+    echo "$i is not prime"
+  fi
+done

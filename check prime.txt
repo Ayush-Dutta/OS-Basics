@@ -1,0 +1,14 @@
+echo "Enter number to check if it's prime: "
+read n
+i=2
+while [ $i -lt $n ]
+do
+    rem=$((n%i))
+    if [ $rem -eq 0 ]
+    then
+        echo "$n is not prime."
+        exit 0
+    fi
+    i=$((i+1))
+done
+echo "$n is prime."

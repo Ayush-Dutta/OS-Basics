@@ -1,0 +1,24 @@
+echo "Enter a sentence:"
+read sentence
+
+# Split sentence into an array of words
+words=($sentence)
+
+# Check if sentence has at least 5 words
+if [ ${#words[@]} -lt 5 ]; then
+    echo "Sentence must have at least 5 words."
+    exit 1
+fi
+
+# Replace first 4 letters of 5th word with "NEW"
+echo "enter characters to replace with"
+read n
+new_word="$n${words[4]:4}"
+words[4]=$new_word
+
+# Join words back into sentence
+new_sentence="${words[*]}"
+
+# Print new sentence
+echo "New sentence:"
+echo $new_sentence
